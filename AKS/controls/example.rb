@@ -21,14 +21,11 @@ control 'azurerm_aks_clusters' do
   its('resource_group_name') { should cmp 'azkubernetes' }
   its ('tags'){ should cmp 'Terraform=True' }
   its('properties.dnsPrefix') { should cmp 'gitlab' }
-  end
-
-  describe azurerm_network_security_group(resource_group: 'azkubernetes', name: 'gitops-demo-aks') do
-    its('properties.agentPoolProfiles.first.name') { should cmp 'default' }
-    its('properties.agentPoolProfiles.first.count') { should cmp 1 }
-    its('properties.agentPoolProfiles.first.vmSize') { should cmp 'Standard_F2s_v2' }
-    its('properties.osProfile.diskSizeGB') { should cmp 30 }
-    its('properties.provisioningState') { should cmp 'Succeeded' }
+  its('properties.agentPoolProfiles.first.name') { should cmp 'default' }
+  its('properties.agentPoolProfiles.first.count') { should cmp 1 }
+  its('properties.agentPoolProfiles.first.vmSize') { should cmp 'Standard_F2s_v2' }
+  its('properties.osProfile.diskSizeGB') { should cmp 30 }
+  its('properties.provisioningState') { should cmp 'Succeeded' }
   end
 end  
 
