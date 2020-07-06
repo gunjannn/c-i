@@ -8,8 +8,8 @@ summary: An InSpec Compliance Profile
 version: 0.1.0
 inspec_version: '>= 4.21.1'
 depends:
-  - name: Chef-Inspec
-    git:  https://github.com/gunjannn/Chef-Inspec
+  - name: c-i
+    git:  https://github.com/gunjannn/c-i
 supports:
   platform: azure
 
