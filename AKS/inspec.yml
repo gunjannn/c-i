@@ -9,7 +9,7 @@ version: 0.1.0
 inspec_version: '>= 4.21.1'
 depends:
   - name: inspec-azure
-git: https://github.com/inspec/inspec-azure.git
+    git: https://github.com/inspec/inspec-azure.git
 supports:
   platform: azure
 
