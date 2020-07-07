@@ -1,0 +1,32 @@
+pipeline{
+  agent any
+  stages{
+     
+    stage('SCM Checkout'){
+        git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
+    }
+	
+	  stage('Terraform Init') {
+      steps {
+        sh "terraform init -input=false"
+      }
+    }
+    stage('Terraform Plan') {
+      steps {
+        sh "terraform plan -out=tfplan -input=false -var-file='terraform.tfvars'"
+      }
+    }
+	stage('Inspec Testing') {
+	  steps {
+	    sh "inspec exec AKS -t azure://${subscription id}"
+	  }
+	}
+	/*stage('test outcome')
+	  steps {
+	    sh "./infra-testing.sh"
+	*/	
+	stage('Terraform Apply') {
+      steps {
+        sh "terraform apply -input=false tfplan"
+      }
+    }
