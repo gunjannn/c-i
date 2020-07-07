@@ -9,7 +9,7 @@ node {
 	
 	  stage('Terraform Init') {
    
-        sh "cd /c-i"
+        sh "cd /var/lib/jenkins/workspace/c-i"
 	sh "terraform init -input=false"
       }
     
