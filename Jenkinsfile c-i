@@ -9,7 +9,8 @@ node {
 	
 	  stage('Terraform Init') {
    
-        sh "terraform init -input=false"
+        sh "cd /c-i"
+	sh "terraform init -input=false"
       }
     
     stage('Terraform Plan') {
