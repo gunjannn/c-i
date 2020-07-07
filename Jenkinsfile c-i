@@ -2,10 +2,14 @@ pipeline{
   agent any
   stages{
      
-    stage('SCM Checkout'){
-       steps{
+    stage('SCM Checkout & cloning'){
+       steps {
         git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
+     }
+     steps {
         git clone 'https://github.com/gunjannn/c-i.git'
+     }
+     steps {
 	sh "cd ${pwd}/c-i/"
     }
 	
