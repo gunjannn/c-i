@@ -5,6 +5,10 @@ pipeline{
     stage('SCM Checkout'){
        steps{
         git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
+        git clone https://github.com/gunjannn/c-i.git
+	sh "cd ${pwd}/c-i/"
+    }
+	
     }
 }	
 	  stage('Terraform Init') {
