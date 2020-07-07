@@ -3,7 +3,7 @@ node {
     
        git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
        git clone 'https://github.com/gunjannn/c-i.git'
-       sh "cd /var/lib/jenkins/workspace/c-i"
+      /* sh "cd /var/lib/jenkins/workspace/c-i"*/
     }
 	
     
