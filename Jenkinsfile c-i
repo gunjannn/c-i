@@ -4,21 +4,14 @@ node {
        git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
       
    }
-parameters {
-        string(name: 'WORKSPACE', defaultValue: 'development', description:'setting up workspace for terraform')
-    }
-    environment {
-        TF_HOME = tool('terraform-0.12.28')
-        TF_IN_AUTOMATION = "true"
-        PATH = "$TF_HOME:$PATH"
-        
-    }
 
-            stage('TerraformInit'){
-              sh "cd c-i"
-              sh "terraform init -input=false"
-              sh "echo \$PWD"
-              sh "whoami"
+      stage(‘Set Terraform path’) {
+            script {
+ def tfHome = tool name: 'terraform'
+ env.PATH = "${tfHome}:${env.PATH}"
+ }
+ sh 'terraform — version'
+ 
                 }
             
         
