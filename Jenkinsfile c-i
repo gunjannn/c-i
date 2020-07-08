@@ -11,7 +11,7 @@ node {
       }
       
       stage('Terraforminit') {
-        sh "cd terraform"
+       
 	sh "terraform init -input=false"
       }
     
