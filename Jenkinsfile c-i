@@ -4,7 +4,27 @@ node {
        git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
       
    }
-   stage ('cloning') {
+parameters {
+        string(name: 'WORKSPACE', defaultValue: 'development', description:'setting up workspace for terraform')
+    }
+    environment {
+        TF_HOME = tool('terraform-0.12.28')
+        TF_IN_AUTOMATION = "true"
+        PATH = "$TF_HOME:$PATH"
+        
+    }
+    stages {
+            stage('TerraformInit'){
+            steps {
+                dir('c-i'){
+                    sh "terraform init -input=false"
+                    sh "echo \$PWD"
+                    sh "whoami"
+                }
+            }
+        }
+
+   /*stage ('cloning') {
       sh "cd /var/lib/jenkins/" 
       sh "rm -rf c-i"
       sh "mkdir source1"
@@ -15,7 +35,7 @@ node {
 
       stage('Terraforminit') {
         sh "terraform init"
-      }
+      }*/
     
     stage('TerraformPlan') {
      
