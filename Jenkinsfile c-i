@@ -4,10 +4,10 @@ node {
        git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
       
    }
-   stage ('cloning') {
+   /*stage ('cloning') {
       sh "git clone https://github.com/gunjannn/c-i.git"
 
-     } 
+     }*/ 
       stage('Terraforminit') {
        
 	sh "/home/ec2-user terraform init -input=false ./c-i/"
