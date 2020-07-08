@@ -10,7 +10,7 @@ node {
      }*/ 
       stage('Terraforminit') {
        
-	sh "/home/ec2-user/terraform init -input=false ./c-i/"
+	sh "sudo /home/ec2-user/terraform init -input=false ./c-i/"
       }
     
     stage('TerraformPlan') {
