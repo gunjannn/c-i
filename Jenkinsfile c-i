@@ -5,11 +5,15 @@ node {
       
    }
 	
-    
+    stage('git clone'){
+        git clone 'https://github.com/gunjannn/c-i.git'
+   }
 	
-	  stage('Terraform Init') {
+	  stage('Terraform Repo') {
    
         sh "cd /var/lib/jenkins/workspace/c-i"
+      }
+      stage(Terraform init){
 	sh "terraform init -input=false"
       }
     
