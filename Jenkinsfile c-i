@@ -9,8 +9,7 @@ node {
 
      }*/ 
       stage('Terraforminit') {
-        dir(/var/lib/jenkins/workspace/c-i/)
-	sh "terraform init -input=false"
+        sh "${env.TERRAFORM_HOME}/terraform init -input=false"
       }
     
     stage('TerraformPlan') {
