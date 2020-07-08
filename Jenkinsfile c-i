@@ -13,13 +13,11 @@ parameters {
         PATH = "$TF_HOME:$PATH"
         
     }
-    stages {
+
             stage('TerraformInit'){
-            steps {
-                dir('c-i'){
-                    sh "terraform init -input=false"
-                    sh "echo \$PWD"
-                    sh "whoami"
+              sh "terraform init -input=false"
+              sh "echo \$PWD"
+              sh "whoami"
                 }
             }
         }
