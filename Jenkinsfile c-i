@@ -19,8 +19,8 @@ parameters {
               sh "echo \$PWD"
               sh "whoami"
                 }
-            }
-        }
+            
+        
 
    /*stage ('cloning') {
       sh "cd /var/lib/jenkins/" 
