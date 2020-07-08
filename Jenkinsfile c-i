@@ -15,6 +15,7 @@ parameters {
     }
 
             stage('TerraformInit'){
+              sh "cd c-i"
               sh "terraform init -input=false"
               sh "echo \$PWD"
               sh "whoami"
