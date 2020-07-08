@@ -5,7 +5,7 @@ node {
       
    }
 
-      stage(‘Set Terraform path’) {
+      stage('Setterraformpath') {
             script {
  def tfHome = tool name: 'terraform'
  env.PATH = "${tfHome}:${env.PATH}"
