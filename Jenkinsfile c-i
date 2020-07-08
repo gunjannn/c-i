@@ -13,7 +13,8 @@ node {
    
         sh "cd /var/lib/jenkins/workspace/c-i"
       }
-      stage(Terraform init){
+      
+      stage(terraform init) {
 	sh "terraform init -input=false"
       }
     
