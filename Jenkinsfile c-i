@@ -5,10 +5,6 @@ node {
       
    }
 
-	  stage('Terraform Repo') {
-   
-        sh "cd /var/lib/jenkins/workspace/c-i"
-      }
       
       stage('Terraforminit') {
        
