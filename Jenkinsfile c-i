@@ -9,12 +9,12 @@ node {
 
      }*/ 
       stage('Terraforminit') {
-        sh "${env.TERRAFORM_HOME}/terraform init -input=false"
+        sh "terraform init -input=false"
       }
     
     stage('TerraformPlan') {
      
-        sh "terraform plan -out=tfplan -input=false -var-file='terraform.tfvars'"
+        sh "terraform plan -out=tfplan -input=false"
       }
     
 	stage('InspecTesting') {
