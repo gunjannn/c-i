@@ -11,7 +11,7 @@ node {
       }
       
       stage('Terraforminit') {
-        dir ( 'c-i') {
+        dir ( ' export PATH=/usr/java/<JDK Directory>/bin:$PATH') {
 	sh "terraform init -input=false"
       }
     
