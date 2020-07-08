@@ -4,11 +4,13 @@ node {
        git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
       
    }
+   stage ('cloning') {
+      sh "sudo git clone https:https://github.com/gunjannn/c-i.git"
 
-      
+     } 
       stage('Terraforminit') {
        
-	sh "terraform init -input=false"
+	sh " sudo /home/ec2-user terraform init -input=false ./c-i/"
       }
     
     stage('TerraformPlan') {
