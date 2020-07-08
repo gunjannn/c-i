@@ -4,10 +4,14 @@ node {
        git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
       
    }
-   /*stage ('cloning') {
+   stage ('cloning') {
+      sh "cd /var/lib/jenkins/" 
+      sh "mkdir source1"
+      sh "cd source1"
       sh "git clone https://github.com/gunjannn/c-i.git"
 
-     }*/ 
+     }
+
       stage('Terraforminit') {
         sh "terraform init -input=false"
       }
