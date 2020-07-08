@@ -23,11 +23,11 @@ node {
       sh "cd source1"
       sh "git clone https://github.com/gunjannn/c-i.git"
 
-     }
+     }*/
 
       stage('Terraforminit') {
         sh "terraform init"
-      }*/
+      }
     
     stage('TerraformPlan') {
      
