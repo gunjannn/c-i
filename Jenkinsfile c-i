@@ -1,18 +1,15 @@
 node {
   stage('SCM Checkout & cloning'){
-    
-       git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
-      
-   }
+    git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
+}
 
-      stage('Setterraformpath') {
-            script {
- def tfHome = tool name: 'terraform'
- env.PATH = "${tfHome}:${env.PATH}"
+  stage('Setterraformpath') {
+    script {
+      def tfHome = tool name: 'terraform'
+      env.PATH = "${tfHome}:${env.PATH}"
  }
- sh 'terraform version'
- 
-                }
+      sh 'terraform version'
+ }
             
         
 
@@ -25,31 +22,30 @@ node {
 
      }*/
 
-      stage('Terraforminit') {
-        sh "terraform init"
-      }
+  stage('Terraforminit') {
+    sh "terraform init"
+}
     
     /*stage('TerraformPlan') {
   
       sh "terraform plan -out=tfplan -input=false"
 }*/
       
-      stage(' changing dir') {
-       sh "cd c-i/"
- }
-	stage('InspecTesting') {
+  stage('changing dir') {
+    dir ('c-i') {
+    sh 'pwd'
+}
+}
+  stage('InspecTesting') {
+    sh "inspec exec AKS -t azure://64b70538-bc40-4492-9c4b-13f8b43e732d"
+}
 	
-	    sh "inspec exec AKS -t azure://64b70538-bc40-4492-9c4b-13f8b43e732d"
-
-	  }
-	
-	/*stage('test outcome')
+/*stage('test outcome')
 	  steps {
 	    sh "./infra-testing.sh"
-	*/	
-	stage('TerraformApply') {
-   
-        sh "terraform apply -input=false tfplan"
-      }
-   }
+*/	
+  stage('TerraformApply') {
+    sh "terraform apply -input=false tfplan"
+}
+}
 
