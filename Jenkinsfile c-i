@@ -30,8 +30,9 @@ node {
       }
     
     stage('TerraformPlan') {
-      azureCLI commands: [[exportVariablesString: 'client_id', script: 'terraform plan'], [exportVariablesString: 'client_secret', script: 'terraform plan'],[exportVariablesString: 'tenant_id', script: 'terraform plan'], ], principalCredentialId: 'az'
+      withCredentials([azureServicePrincipal('az')]) {
       sh "terraform plan -out=tfplan -input=false"
+
       }
     
 	stage('InspecTesting') {
