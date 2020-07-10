@@ -22,6 +22,11 @@ resource "azurerm_kubernetes_cluster" "aks" {
     os_disk_size_gb = 30
   }
 
+  service_principal {
+    client_id         = "msi"
+    client_secret     = "null"
+  } 
+  
   identity {
     type = "SystemAssigned"
     }
