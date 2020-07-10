@@ -26,9 +26,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
     os_disk_size_gb = 30
   }
 
-  /*identity {
+  identity {
     type = "SystemAssigned"
-  }*/
+  }
 
   tags = {
     Terraform = "True"
