@@ -25,12 +25,12 @@ node {
 
      }*/
 
-     /* stage('Terraforminit') {
+      stage('Terraforminit') {
         sh "terraform init"
-      }*/
+      }
     
     stage('TerraformPlan') {
-      withCredentials([azureServicePrincipal('az')]) {
+     /*withCredentials([azureServicePrincipal('az')]) {*/
       sh "terraform plan -out=tfplan -input=false"
 
       }
@@ -49,4 +49,4 @@ node {
         sh "terraform apply -input=false tfplan"
       }
    }
-}
+
