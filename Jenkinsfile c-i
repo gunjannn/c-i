@@ -48,6 +48,5 @@ node {
    
         sh "terraform apply -input=false tfplan"
       }
-    
+   }
 }
-
