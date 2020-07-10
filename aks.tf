@@ -1,12 +1,6 @@
 provider "azurerm" {
   /*version = "=1.44.0"*/
-  
-  service_principal {
-    subscription_id = "64b70538-bc40-4492-9c4b-13f8b43e732d"
-    tenant_id = "2b6d0a61-dfad-4b8b-8763-0cb831697a57"
-    client_id     = "e69a80e6-8258-4f1a-9bdc-e82cd6128036" # defaults to msi 
-    client_secret = "ZlikVT.yXc_5sOzM9hZJgJFf6iXa2ObCas" # cannot be null
-  }
+
  
   features {}
 }
