@@ -30,10 +30,10 @@ node {
       }
     
     stage('TerraformPlan') {
-     withCredentials([azureServicePrincipal('az')]) {
+  
       sh "terraform plan -out=tfplan -input=false"
 }
-      }
+      
     
 	stage('InspecTesting') {
 	
