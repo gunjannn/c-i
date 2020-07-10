@@ -1,9 +1,13 @@
+variable "client_secret" {
+}
+
 provider "azurerm" {
   /*version = "=1.44.0"*/
-   /* service_principal {
-    client_id     = var.client_id # defaults to msi 
-    client_secret = var.client_secret # cannot be null
-  }*/
+  subscription_id = "64b70538-bc40-4492-9c4b-13f8b43e732d"
+  client_id       = "9f165633-0fb1-46ed-9a89-acca8547244c"
+  client_secret   = var.client_secret
+  tenant_id       = "2b6d0a61-dfad-4b8b-8763-0cb831697a57"
+
  
   features {}
 }
