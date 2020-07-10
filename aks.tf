@@ -19,6 +19,8 @@ resource "azurerm_resource_group" "azkubernetes" {
 service principal {
    client_id = "3df2bfee-ee00-4516-bebb-693639119968"
    client_secret = "1DnE_p3Mm1VTa7garwN7nynbDXXN1LCCLj"
+  }
+
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "gitops-demo-aks"
   location            = azurerm_resource_group.azkubernetes.location
