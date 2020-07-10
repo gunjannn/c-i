@@ -7,7 +7,7 @@ tenant_id = "2b6d0a61-dfad-4b8b-8763-0cb831697a57"
 subscription_id = "64b70538-bc40-4492-9c4b-13f8b43e732d"
 
 
-  /*features {}*/
+  features {}
 }
 
 resource "azurerm_resource_group" "azkubernetes" {
