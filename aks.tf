@@ -1,9 +1,9 @@
 provider "azurerm" {
   /*version = "=1.44.0"*/
-    service_principal {
+   /* service_principal {
     client_id     = var.client_id # defaults to msi 
     client_secret = var.client_secret # cannot be null
-  }
+  }*/
  
   features {}
 }
@@ -26,9 +26,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
     os_disk_size_gb = 30
   }
 
-  identity {
+  /*identity {
     type = "SystemAssigned"
-  }
+  }*/
 
   tags = {
     Terraform = "True"
