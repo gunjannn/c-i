@@ -35,7 +35,7 @@ node {
 }*/
       
       stage(' changing dir') {
-       sh "cd c-i"
+       sh "cd c-i/"
  }
 	stage('InspecTesting') {
 	
