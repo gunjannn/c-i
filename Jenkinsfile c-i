@@ -25,9 +25,9 @@ node {
 
      }*/
 
-      stage('Terraforminit') {
+     /* stage('Terraforminit') {
         sh "terraform init"
-      }
+      }*/
     
     stage('TerraformPlan') {
       withCredentials([azureServicePrincipal('az')]) {
