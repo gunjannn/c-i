@@ -1,6 +1,9 @@
 provider "azurerm" {
   /*version = "=1.44.0"*/
-
+    service_principal {
+    client_id     = var.client_id # defaults to msi 
+    client_secret = var.client_secret # cannot be null
+  }
  
   features {}
 }
