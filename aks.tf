@@ -29,9 +29,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
     os_disk_size_gb = 30
   }
 
-  identity {
+  /*identity {
     type = "SystemAssigned"
-  }
+  }*/
 
   service_principal {
     client_id = "3df2bfee-ee00-4516-bebb-693639119968"
