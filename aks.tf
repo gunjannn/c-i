@@ -1,7 +1,7 @@
 
 
 provider "azurerm" {
-  /*version = "=1.44.0"*/
+  version = "=1.44.0"
   subscription_id = "64b70538-bc40-4492-9c4b-13f8b43e732d"
   client_id       = "9f165633-0fb1-46ed-9a89-acca8547244c"
   client_secret   = "I7Xd.2RbIWV1o6Ip9k.S-Q6JsQmD~QJVK_"
