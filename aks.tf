@@ -1,5 +1,7 @@
 provider "azurerm" {
-  /*version = "~> 2.8.0"*/
+  version = "=1.44.0"
+  subscription_id = "64b70538-bc40-4492-9c4b-13f8b43e732d"
+  tenant_id = "2b6d0a61-dfad-4b8b-8763-0cb831697a57"
  
   features {}
 }
