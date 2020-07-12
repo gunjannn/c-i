@@ -19,7 +19,7 @@ node {
    
    stage('TerraformPlan') { */
       sh "terraform plan -out=tfplan -input=false"
-}
+/*}
       
   stage('changing dir') {
     dir ('c-i') {
@@ -27,7 +27,7 @@ node {
 }
 }
 
-  stage('TerraformApply') {
+  stage('TerraformApply') {*/
     sh "terraform apply -input=false tfplan"
 }
 
