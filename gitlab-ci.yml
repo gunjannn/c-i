@@ -1,0 +1,31 @@
+stages:
+  - scm checkout & cloning
+  - setterraform path
+  - terraform apply
+  - infra testing
+test:
+  stage: test
+  script: 
+    - aks.tf
+  only:
+    - branches
+  tags:
+    - maven
+
+install:
+  stage: install
+  script:
+    - mvn clean install
+  only:
+    - branches
+  tags:
+    - maven
+#deploy:
+#  stage: deploy
+#  script: 
+#    - .\deploy.sh
+#  only:
+#    - master
+#  when: manual
+#  tags:
+#    - maven
