@@ -4,36 +4,23 @@ node {
 }
 
   stage('Setterraformpath') {
-     withCredentials([azureServicePrincipal('az')]) {
     script {
       def tfHome = tool name: 'terraform'
       env.PATH = "${tfHome}:${env.PATH}"
  }
       sh 'terraform version'
  }
-  }          
-        
-
-   /*stage ('cloning') {
-      sh "cd /var/lib/jenkins/" 
-      sh "rm -rf c-i"
-      sh "mkdir source1"
-      sh "cd source1"
-      sh "git clone https://github.com/gunjannn/c-i.git"
-
-     }*/
-
+            
+      
   stage('Terraforminit') {
-    withCredentials([azureServicePrincipal('az')]) {
 
     sh "terraform init"
-}
-}    
-    stage('TerraformPlan') {
-      withCredentials([azureServicePrincipal('az')]) { 
+}*/
+   
+    /*stage('TerraformPlan') { */
       sh "terraform plan -out=tfplan -input=false"
 }
-}      
+      
   stage('changing dir') {
     dir ('c-i') {
     sh 'pwd'
@@ -41,10 +28,9 @@ node {
 }
 
   stage('TerraformApply') {
-     withCredentials([azureServicePrincipal('az')]) {
     sh "terraform apply -input=false tfplan"
 }
-}
+
   stage('InspecTesting') {
   withCredentials([azureServicePrincipal('az')]) {
    
