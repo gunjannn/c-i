@@ -16,6 +16,7 @@ control 'azurerm_aks_cluster' do
   its('location') { should cmp 'eastus' }
   its ('tags'){ should cmp "Terraform" => "True" }
   its('properties.dnsPrefix') { should cmp 'gitlab' }
+  its('properties.kubernetesVersion') { should cmp '1.16.10'}
   its('properties.agentPoolProfiles.first.name') { should cmp 'default' }
   its('properties.agentPoolProfiles.first.count') { should cmp 1 }
   its('properties.agentPoolProfiles.first.vmSize') { should cmp 'Standard_F2s_v2' }
