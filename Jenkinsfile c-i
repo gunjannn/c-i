@@ -13,13 +13,13 @@ node {
             
       
   stage('TerraformApply') {
-	withCredentials([azureServicePrincipal('az')]) {
+	/*withCredentials([azureServicePrincipal('az')]) {*/
       sh "terraform init -input=false"
 	  sh "terraform validate"
       sh "terraform plan -out=tfplan -input=false"
 	  sh "terraform apply -input=false tfplan"
       }
-    }
+    
 	
   stage('InfraTesting') {
     withCredentials([azureServicePrincipal('az')]) {
