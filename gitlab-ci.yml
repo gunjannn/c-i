@@ -1,3 +1,11 @@
+variables:
+  PLAN: aks.tfplan
+  JSON_PLAN_FILE: tfplan.json
+
+
+
+
+
 stages:
   - scm checkout & cloning
   - setterraform path
@@ -9,13 +17,13 @@ test:
     - aks.tf
   only:
     - branches
-  tags:
-    - maven
+ # tags:
+ #  - maven
 
 install:
-  stage: install
+  stage: setterraform path
   script:
-    - mvn clean install
+    - 
   only:
     - branches
   tags:
