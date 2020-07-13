@@ -90,19 +90,19 @@ node {
   stage('TerraformApply') {
 
     sh "terraform init"
-/*}
+}
    
-   stage('TerraformPlan') { */
+   stage('TerraformPlan') { 
       sh "terraform plan -out=tfplan -input=false"
-/*}
+}*/
       
-  stage('changing dir') {
+ /* stage('changing dir') {
     dir ('c-i') {
     sh 'pwd'
 }
 }
 
-  stage('TerraformApply') {*/
+  stage('TerraformApply') {
     sh "terraform apply -input=false tfplan"
 }
 
