@@ -4,16 +4,17 @@ node {
 }
 
   stage('Setterraformpath') {
+    withCredentials([azureServicePrincipal('az')]) {
     script {
       def tfHome = tool name: 'terraform'
       env.PATH = "${tfHome}:${env.PATH}"
  }
       sh 'terraform version'
  }
-            
+  }          
       
   stage('TerraformApply') {
-    /*withCredentials([azureServicePrincipal('az')]) {*/
+    withCredentials([azureServicePrincipal('az')]) {
       sh "terraform init -input=false"
       sh "terraform validate"
       sh "terraform plan -out=tfplan -input=false"
