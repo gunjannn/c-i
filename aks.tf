@@ -1,8 +1,8 @@
 provider "azurerm" {
-  subscription_id = var.AZURE_SUBSCRIPTION_ID
+  /*subscription_id = var.AZURE_SUBSCRIPTION_ID
   client_id       = var.AZURE_CLIENT_ID
   client_secret   = var.AZURE_CLIENT_SECRET
-  tenant_id       = var.AZURE_TENANT_ID
+  tenant_id       = var.AZURE_TENANT_ID*/
 
   version =  "~> 2.18"
   features {}
