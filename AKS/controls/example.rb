@@ -19,7 +19,7 @@ control 'azurerm_aks_cluster' do
   its('properties.kubernetesVersion') { should cmp '1.16.10'}
   its('properties.agentPoolProfiles.first.name') { should cmp 'default' }
   its('properties.agentPoolProfiles.first.count') { should cmp 1 }
-  its('properties.agentPoolProfiles.first.vmSize') { should cmp 'Standard_F2s_v2' }
+  its('properties.agentPoolProfiles.first.vmSize') { should cmp 'Standard_D2s_v3' }
   its('properties.provisioningState') { should cmp 'Succeeded' }
   its('properties.agentPoolProfiles.first.osType') { should cmp 'Linux' }
   its('properties.agentPoolProfiles.first.osProfile.diskSize') { should cmp >=30 }
