@@ -31,14 +31,14 @@ node {
       sh "terraform validate"
       sh "terraform plan -out=tfplan -input=true -var="AZURE_SUBSCRIPTION_ID=${params.Subscription_ID}" -var="AZURE_CLIENT_ID=${params.Client_ID}" -var="AZURE_TENANT_ID=${params.Tenant_ID}" -var="AZURE_CLIENT_SECRET=${params.Client_Secret""
       sh "terraform apply -input=false tfplan -var=[AZURE_SUBSCRIPTION_ID = "${params.Subscription_ID}", AZURE_CLIENT_ID = "${params.Client_ID}", AZURE_TENANT_ID = "${params.Tenant_ID}", AZURE_CLIENT_SECRET = "${params.Client_Secret}"]"
-	
+	}
   stage('InfraTesting') {
     withCredentials([azureServicePrincipal('az')]) {
       sh "inspec exec AKS -t azure://64b70538-bc40-4492-9c4b-13f8b43e732d"
 }
 }	
 }
-}
+
 
 
 
