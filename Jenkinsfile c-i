@@ -5,6 +5,12 @@ node {
     password (name: 'Client_Secret')
     password (name: 'Tenant_ID')
   }
+  environment{
+    AZURE_SUBSCRIPTION_ID = "${params.Subscription_ID}"
+    AZURE_CLIENT_ID = "${params.Client_ID}"
+    AZURE_TENANT_ID = "${params.Tenant_ID}"
+    AZURE_CLIENT_SECRET = "${params.Client_Secret}"
+}
   stage('SCM Checkout & cloning'){
     git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
 }
