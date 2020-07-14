@@ -29,9 +29,8 @@ node {
     /*withCredentials([azureServicePrincipal('az')]) {*/
       sh "terraform init -input=false"
       sh "terraform validate"
-      sh "terraform plan -out=tfplan -input=true -var=["${params.Client_ID}", "${params.Client_Secret}", "${params.Tenant_ID}", "${params.Subscription_ID}"]"
-      sh "terraform apply -input=false tfplan -var=["${params.Client_ID}", "${params.Client_Secret}", "${params.Tenant_ID}", "${params.Subscription_ID}"]"
-    
+      sh "terraform plan -out=tfplan -input=true -var=[AZURE_SUBSCRIPTION_ID = "${params.Subscription_ID}", AZURE_CLIENT_ID = "${params.Client_ID}", AZURE_TENANT_ID = "${params.Tenant_ID}", AZURE_CLIENT_SECRET = "${params.Client_Secret}"]"
+      sh "terraform apply -input=false tfplan -var=[AZURE_SUBSCRIPTION_ID = "${params.Subscription_ID}", AZURE_CLIENT_ID = "${params.Client_ID}", AZURE_TENANT_ID = "${params.Tenant_ID}", AZURE_CLIENT_SECRET = "${params.Client_Secret}"]"
 	
   stage('InfraTesting') {
     withCredentials([azureServicePrincipal('az')]) {
