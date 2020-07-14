@@ -1,17 +1,17 @@
 
-variable "client_id" {
+variable "Client_ID" {
   description = "The Client ID (appId) for the Service Principal used for the AKS deployment"
 }
 
-variable "client_secret" {
+variable "Client_Secret" {
   description = "The Client Secret (password) for the Service Principal used for the AKS deployment"
 }
 
-variable "subscription_id" {
+variable "Subscription_ID" {
   description = "The Subscription ID for the Service Principal used for the AKS deployment"
 }
 
-variable "tenant_id" {
+variable "Tenant_ID" {
   description = "The Tenant Id for the Service Principal used for the AKS deployment"
 }
 
