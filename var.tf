@@ -1,4 +1,4 @@
-variable "AZURE_CLIENT_ID" {
+/*variable "AZURE_CLIENT_ID" {
     description = "client"
     default = "4aa4edf1-b7a2-4718-b12d-207802db30ca"
 }
@@ -16,4 +16,4 @@ variable "AZURE_CLIENT_SECRET" {
 variable "AZURE_TENANT_ID" {
     description = "tenant"
     default = "2b6d0a61-dfad-4b8b-8763-0cb831697a57"
-}
+}*/
