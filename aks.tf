@@ -1,17 +1,8 @@
 provider "azurerm" {
- $ export ARM_CLIENT_ID = ${AZURE_SUBSCRIPTION_ID}
- $ export ARM_CLIENT_SECRET = ${AZURE_CLIENT_ID}
- $ export ARM_SUBSCRIPTION_ID = ${AZURE_CLIENT_SECRET}
- $ export ARM_TENANT_ID = ${AZURE_TENANT_ID} 
-  
-  
-  
-  
-  
-  /*subscription_id = var.AZURE_SUBSCRIPTION_ID
+  subscription_id = var.AZURE_SUBSCRIPTION_ID
   client_id       = var.AZURE_CLIENT_ID
   client_secret   = var.AZURE_CLIENT_SECRET
-  tenant_id       = var.AZURE_TENANT_ID*/
+  tenant_id       = var.AZURE_TENANT_ID
 
   version =  "~> 2.18"
   features {}
