@@ -1,4 +1,10 @@
 node {
+  parameters {
+    password (name: 'Subscription_ID')
+    password (name: 'Client_ID')
+    password (name: 'Client_Secret')
+    password (name: 'Tenant_ID')
+  }
   stage('SCM Checkout & cloning'){
     git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
 }
