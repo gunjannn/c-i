@@ -40,13 +40,12 @@ node {
       sh "terraform apply -input=false tfplan" 
 	
   stage('InfraTesting') {
-    /*withCredentials([azureServicePrincipal('az')]) {*/
+    withCredentials([azureServicePrincipal('az')]) {
       sh "inspec exec AKS -t azure://"
 }	
 }
 }
-
-
+}
 
 
 
