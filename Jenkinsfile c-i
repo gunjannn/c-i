@@ -1,5 +1,12 @@
 node {
-  parameters {
+   withCredentials([azureServicePrincipal(credentialsId: 'az',
+                                    subscriptionIdVariable: 'subscription_id',
+                                    clientIdVariable: 'client_id',
+                                    clientSecretVariable: 'client_secret',
+                                    tenantIdVariable: 'tenant_id')]) {
+    sh 'az login --service-principal -u $client_id -p $client_secret -t $tenant_id'
+}
+  /*parameters {
     password (name: 'subscription_id')
     password (name: 'client_id')
     password (name: 'client_secret')
@@ -10,13 +17,13 @@ node {
     AZURE_CLIENT_ID = "${params.client_id}"
     AZURE_TENANT_ID = "${params.tenant_id}"
     AZURE_CLIENT_SECRET = "${params.client_secret}"
-}
+}*/
   stage('SCM Checkout & cloning'){
     git url:  'https://github.com/gunjannn/c-i.git',branch: 'master'
 }
 
   stage('Setterraformpath') {
-    /*withCredentials([azureServicePrincipal('az')]) {*/
+   
     script {
       def tfHome = tool name: 'terraform'
       env.PATH = "${tfHome}:${env.PATH}"
@@ -29,19 +36,15 @@ node {
     /*withCredentials([azureServicePrincipal('az')]) {*/
       sh "terraform init -input=false"
       sh "terraform validate"
-      sh "terraform plan -out=tfplan -input=false -var="subscription_id=${params.subscription_id}" -var="client_id=${params.client_id}" -var="tenant_id=${params.tenant_id}" -var="client_secret=${params.client_secret}""
-      /*sh "terraform apply -input=false tfplan -var=[AZURE_SUBSCRIPTION_ID = "${params.Subscription_ID}", AZURE_CLIENT_ID = "${params.Client_ID}", AZURE_TENANT_ID = "${params.Tenant_ID}", AZURE_CLIENT_SECRET = "${params.Client_Secret}"]"
-	}*/
-  /*stage('InfraTesting') {
-    withCredentials([azureServicePrincipal('az')]) {
-      sh "inspec exec AKS -t azure://64b70538-bc40-4492-9c4b-13f8b43e732d"
-}*/
+      sh "terraform plan -out=tfplan -input=false"
+      sh "terraform apply -input=false tfplan" 
+	
+  stage('InfraTesting') {
+    /*withCredentials([azureServicePrincipal('az')]) {*/
+      sh "inspec exec AKS -t azure://"
 }	
 }
-
-
-
-
+}
 
 
 
