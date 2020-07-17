@@ -41,7 +41,7 @@ node {
 	
   stage('InfraTesting') {
     withCredentials([azureServicePrincipal('az')]) {
-      sh "inspec exec AKS -t azure://"
+      sh "inspec exec docker.rb example.rb -t azure://"
 }	
 }
 }
