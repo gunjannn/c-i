@@ -49,6 +49,9 @@ node {
     withCredentials([azureServicePrincipal('az')]) {
       sh "inspec exec docker.rb example.rb -t azure://"
 }	
+stage 'post-build' {
+build job: 'ELK'
+}
 }
 
 
